@@ -1,0 +1,2 @@
+# Smd
+.netcore common project
