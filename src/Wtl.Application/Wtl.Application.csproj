@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Smd.Coe\Smd.csproj" />
     <ProjectReference Include="..\Wtl.Core\Wtl.Core.csproj" />
     <ProjectReference Include="..\Wtl.EntityFramework\Wtl.EntityFramework.csproj" />
   </ItemGroup>

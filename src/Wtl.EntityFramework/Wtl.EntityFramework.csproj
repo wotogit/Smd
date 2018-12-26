@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Smd.Coe\Smd.csproj" />
     <ProjectReference Include="..\Wtl.Core\Wtl.Core.csproj" />
   </ItemGroup>
 

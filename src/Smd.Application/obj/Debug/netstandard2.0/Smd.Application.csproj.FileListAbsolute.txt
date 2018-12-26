@@ -1,0 +1,9 @@
+E:\web\Smd\src\Smd.Application\bin\Debug\netstandard2.0\Smd.Application.deps.json
+E:\web\Smd\src\Smd.Application\bin\Debug\netstandard2.0\Smd.Application.dll
+E:\web\Smd\src\Smd.Application\bin\Debug\netstandard2.0\Smd.Application.pdb
+E:\web\Smd\src\Smd.Application\obj\Debug\netstandard2.0\Smd.Application.csprojAssemblyReference.cache
+E:\web\Smd\src\Smd.Application\obj\Debug\netstandard2.0\Smd.Application.csproj.CoreCompileInputs.cache
+E:\web\Smd\src\Smd.Application\obj\Debug\netstandard2.0\Smd.Application.AssemblyInfoInputs.cache
+E:\web\Smd\src\Smd.Application\obj\Debug\netstandard2.0\Smd.Application.AssemblyInfo.cs
+E:\web\Smd\src\Smd.Application\obj\Debug\netstandard2.0\Smd.Application.dll
+E:\web\Smd\src\Smd.Application\obj\Debug\netstandard2.0\Smd.Application.pdb
