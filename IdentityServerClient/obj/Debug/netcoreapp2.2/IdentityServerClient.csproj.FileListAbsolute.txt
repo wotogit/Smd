@@ -1,0 +1,11 @@
+E:\web\Smd\IdentityServerClient\bin\Debug\netcoreapp2.2\IdentityServerClient.deps.json
+E:\web\Smd\IdentityServerClient\bin\Debug\netcoreapp2.2\IdentityServerClient.runtimeconfig.json
+E:\web\Smd\IdentityServerClient\bin\Debug\netcoreapp2.2\IdentityServerClient.runtimeconfig.dev.json
+E:\web\Smd\IdentityServerClient\bin\Debug\netcoreapp2.2\IdentityServerClient.dll
+E:\web\Smd\IdentityServerClient\obj\Debug\netcoreapp2.2\IdentityServerClient.csprojAssemblyReference.cache
+E:\web\Smd\IdentityServerClient\obj\Debug\netcoreapp2.2\IdentityServerClient.csproj.CoreCompileInputs.cache
+E:\web\Smd\IdentityServerClient\obj\Debug\netcoreapp2.2\IdentityServerClient.AssemblyInfoInputs.cache
+E:\web\Smd\IdentityServerClient\obj\Debug\netcoreapp2.2\IdentityServerClient.AssemblyInfo.cs
+E:\web\Smd\IdentityServerClient\bin\Debug\netcoreapp2.2\IdentityServerClient.pdb
+E:\web\Smd\IdentityServerClient\obj\Debug\netcoreapp2.2\IdentityServerClient.dll
+E:\web\Smd\IdentityServerClient\obj\Debug\netcoreapp2.2\IdentityServerClient.pdb

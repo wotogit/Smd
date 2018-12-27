@@ -2,8 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
+    <UserSecretsId>aspnet-Wtl.Web.Mvc-24A865D2-45D5-4A5C-B1EE-155273C4023E</UserSecretsId>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\**" />
+    <Content Remove="Data\**" />
+    <EmbeddedResource Remove="Data\**" />
+    <None Remove="Data\**" />
+  </ItemGroup>
 
 
   <ItemGroup>
@@ -16,6 +24,7 @@
     <ProjectReference Include="..\Smd.Coe\Smd.csproj" />
     <ProjectReference Include="..\Wtl.Application\Wtl.Application.csproj" />
     <ProjectReference Include="..\Wtl.Core\Wtl.Core.csproj" />
+    <ProjectReference Include="..\Wtl.EntityFramework\Wtl.EntityFramework.csproj" />
     <ProjectReference Include="..\Wtl.Web.Core\Wtl.Web.Core.csproj" />
   </ItemGroup>
 

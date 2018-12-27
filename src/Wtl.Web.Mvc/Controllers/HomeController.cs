@@ -12,6 +12,7 @@ namespace Wtl.Web.Mvc.Controllers
     {
         public IActionResult Index()
         {
+           
             return View();
         }
 
