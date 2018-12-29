@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Smd.Domain
+namespace Smd.Domain.Entiies
 {
     /// <summary>
     /// 实体基类接口，所有实体必须实体此接口

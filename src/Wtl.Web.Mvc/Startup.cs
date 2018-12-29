@@ -38,6 +38,7 @@ namespace Wtl.Web.Mvc
             services.AddDbContext<WtlDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddDefaultIdentity<IdentityUser>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<WtlDbContext>();

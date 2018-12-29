@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 
-namespace Smd.Domain
+namespace Smd.Domain.Entiies
 {
     public abstract class Entity<TPrimaryKey> : IEntity<TPrimaryKey>
     {
