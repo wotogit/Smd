@@ -14,7 +14,7 @@ namespace Wtl.Core.Domain.Authorization.Users
     /// 用户
     /// </summary>
     [Table("SmdUsers")]
-    public class User : AuditedEntity<long>
+    public class User : AuditedEntity<long,User>
     {
         /// <summary>
         /// Maximum length of the <see cref="UserName"/> property.
@@ -221,7 +221,9 @@ namespace Wtl.Core.Domain.Authorization.Users
             EmailConfirmationCode = Guid.NewGuid().ToString("N").Truncate(MaxEmailConfirmationCodeLength);//邮箱验证使用的验证码
         }
 
-      
+
+        public virtual ICollection<UserToken> Tokens { get; set; }
+
 
         public override string ToString()
         {
