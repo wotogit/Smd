@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "9f02e13e7b645b98df9f56b0fb4201b05d2f3917"
+    "signature": "2ba4c2d05597cfa6f1a27f20615345306bf28e87"
   },
   "compilationOptions": {},
   "targets": {
@@ -221,9 +221,23 @@
           "Microsoft.NETCore.Platforms": "1.1.0"
         }
       },
+      "Nito.AsyncEx.Context/1.1.0": {
+        "dependencies": {
+          "Nito.AsyncEx.Tasks": "1.1.0",
+          "System.Collections.Concurrent": "4.0.12",
+          "System.Diagnostics.Debug": "4.0.11",
+          "System.Threading": "4.0.11"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Nito.AsyncEx.Context.dll": {
+            "assemblyVersion": "1.1.0.0",
+            "fileVersion": "1.1.0.0"
+          }
+        }
+      },
       "Nito.AsyncEx.Coordination/1.0.2": {
         "dependencies": {
-          "Nito.AsyncEx.Tasks": "1.0.1",
+          "Nito.AsyncEx.Tasks": "1.1.0",
           "Nito.Collections.Deque": "1.0.0",
           "System.Runtime": "4.1.0",
           "System.Threading": "4.0.11",
@@ -236,15 +250,15 @@
           }
         }
       },
-      "Nito.AsyncEx.Tasks/1.0.1": {
+      "Nito.AsyncEx.Tasks/1.1.0": {
         "dependencies": {
           "Nito.Disposables": "1.0.0",
           "System.Threading.Tasks": "4.0.11"
         },
         "runtime": {
           "lib/netstandard1.3/Nito.AsyncEx.Tasks.dll": {
-            "assemblyVersion": "1.0.1.0",
-            "fileVersion": "1.0.1.0"
+            "assemblyVersion": "1.1.0.0",
+            "fileVersion": "1.1.0.0"
           }
         }
       },
@@ -318,6 +332,26 @@
           "System.Runtime": "4.1.0"
         }
       },
+      "System.Collections.Concurrent/4.0.12": {
+        "dependencies": {
+          "System.Collections": "4.0.11",
+          "System.Diagnostics.Debug": "4.0.11",
+          "System.Diagnostics.Tracing": "4.1.0",
+          "System.Globalization": "4.0.11",
+          "System.Reflection": "4.1.0",
+          "System.Resources.ResourceManager": "4.0.1",
+          "System.Runtime": "4.1.0",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Threading": "4.0.11",
+          "System.Threading.Tasks": "4.0.11"
+        },
+        "runtime": {
+          "lib/netstandard1.3/System.Collections.Concurrent.dll": {
+            "assemblyVersion": "4.0.12.0",
+            "fileVersion": "1.0.24212.1"
+          }
+        }
+      },
       "System.Collections.Immutable/1.5.0": {
         "runtime": {
           "lib/netstandard2.0/System.Collections.Immutable.dll": {
@@ -364,6 +398,13 @@
             "assemblyVersion": "4.0.3.0",
             "fileVersion": "4.6.26515.6"
           }
+        }
+      },
+      "System.Diagnostics.Tracing/4.1.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.0.1",
+          "System.Runtime": "4.1.0"
         }
       },
       "System.Globalization/4.0.11": {
@@ -653,6 +694,7 @@
       "Smd/1.0.0": {
         "dependencies": {
           "JetBrains.Annotations": "2018.2.1",
+          "Nito.AsyncEx.Context": "1.1.0",
           "Nito.AsyncEx.Coordination": "1.0.2"
         },
         "runtime": {
@@ -814,6 +856,13 @@
       "path": "netstandard.library/2.0.3",
       "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
     },
+    "Nito.AsyncEx.Context/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YPEb4a5lHPmESSOopAqxqpMqUO/OeOAr141TZCIHjc47I/41AOPTfymBbF/YDKaZYlElzVvGHBCR1Z8J4sBMOA==",
+      "path": "nito.asyncex.context/1.1.0",
+      "hashPath": "nito.asyncex.context.1.1.0.nupkg.sha512"
+    },
     "Nito.AsyncEx.Coordination/1.0.2": {
       "type": "package",
       "serviceable": true,
@@ -821,12 +870,12 @@
       "path": "nito.asyncex.coordination/1.0.2",
       "hashPath": "nito.asyncex.coordination.1.0.2.nupkg.sha512"
     },
-    "Nito.AsyncEx.Tasks/1.0.1": {
+    "Nito.AsyncEx.Tasks/1.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-FtQi5Qj22kxHNQv8XPYXp2xc4PPTfyr5jGATgDqRml9BF8OEYwuntSRrbGbxlbWpp0ossrXyUq2gIV1CTQQB2w==",
-      "path": "nito.asyncex.tasks/1.0.1",
-      "hashPath": "nito.asyncex.tasks.1.0.1.nupkg.sha512"
+      "sha512": "sha512-0HzeuwnELt9JMMm4KS7NLW0jcacj8gMuSKNPPkXfP+EXk17/K+WyAq2Bv79VrzD2kAyOLavd9MF8JbggloJZWw==",
+      "path": "nito.asyncex.tasks/1.1.0",
+      "hashPath": "nito.asyncex.tasks.1.1.0.nupkg.sha512"
     },
     "Nito.Collections.Deque/1.0.0": {
       "type": "package",
@@ -891,6 +940,13 @@
       "path": "system.collections/4.0.11",
       "hashPath": "system.collections.4.0.11.nupkg.sha512"
     },
+    "System.Collections.Concurrent/4.0.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2gBcbb3drMLgxlI0fBfxMA31ec6AEyYCHygGse4vxceJan8mRIWeKJ24BFzN7+bi/NFTgdIgufzb94LWO5EERQ==",
+      "path": "system.collections.concurrent/4.0.12",
+      "hashPath": "system.collections.concurrent.4.0.12.nupkg.sha512"
+    },
     "System.Collections.Immutable/1.5.0": {
       "type": "package",
       "serviceable": true,
@@ -925,6 +981,13 @@
       "sha512": "sha512-eIHRELiYDQvsMToML81QFkXEEYXUSUT2F28t1SGrevWqP+epFdw80SyAXIKTXOHrIEXReFOEnEr7XlGiC2GgOg==",
       "path": "system.diagnostics.diagnosticsource/4.5.0",
       "hashPath": "system.diagnostics.diagnosticsource.4.5.0.nupkg.sha512"
+    },
+    "System.Diagnostics.Tracing/4.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vDN1PoMZCkkdNjvZLql592oYJZgS7URcJzJ7bxeBgGtx5UtR5leNm49VmfHGqIffX4FKacHbI3H6UyNSHQknBg==",
+      "path": "system.diagnostics.tracing/4.1.0",
+      "hashPath": "system.diagnostics.tracing.4.1.0.nupkg.sha512"
     },
     "System.Globalization/4.0.11": {
       "type": "package",

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Smd.Authorization.Roles
 {
-    public class RolePermission:Permission
+    public class RolePermission: PermissionSetting
     {
         /// <summary>
         /// 角色ID

@@ -195,8 +195,11 @@ namespace Smd.Authorization.Users
         /// 最近一次登录时间
         /// </summary>
         public virtual DateTime? LastLoginTime { get; set; }
-         
-     
+
+        public int AccessFailedCount { get; set; }
+        public bool IsTwoFactorEnabled { get; set; }
+
+
         protected SmdUserBase()
         {
             IsActive = true; 

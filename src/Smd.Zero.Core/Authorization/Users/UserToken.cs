@@ -52,10 +52,10 @@ namespace Smd.Authorization.Users
         [StringLength(MaxValueLength)]
         public virtual string Value { get; set; }
 
-        protected UserToken()
-        {
-
-        }
+         protected UserToken()
+         {
+         
+         }
 
         protected internal UserToken(SmdUserBase user, [NotNull] string loginProvider, [NotNull] string name, string value)
         { 

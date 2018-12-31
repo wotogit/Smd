@@ -12,7 +12,7 @@ namespace Smd.Authorization
     /// 用于角色或用户授权情况
     /// </summary>
     [Table("SmdPermissions")]
-    public class Permission:Entity<long>
+    public class PermissionSetting:Entity<long>
     {
         /// <summary>
         /// Maximum length of the <see cref="Name"/> field.
@@ -35,7 +35,7 @@ namespace Smd.Authorization
         /// <summary>
         /// Creates a new <see cref="Permission"/> entity.
         /// </summary>
-        protected Permission()
+        protected PermissionSetting()
         {
             IsGranted = true;
         }

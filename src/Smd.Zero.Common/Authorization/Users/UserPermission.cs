@@ -7,7 +7,7 @@ namespace Smd.Authorization.Users
     /// <summary>
     /// 用户权限
     /// </summary> 
-    public class UserPermission : Permission
+    public class UserPermission : PermissionSetting
     {
         public virtual long UserId { get; set; }
     }

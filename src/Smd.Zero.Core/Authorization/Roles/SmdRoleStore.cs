@@ -2,6 +2,7 @@
 using JetBrains.Annotations;
 using Microsoft.AspNetCore.Identity;
 using Smd.Authorization.Users;
+using Smd.Dependency;
 using Smd.Domain.Repositories;
 using Smd.Repositories;
 using System;
@@ -18,7 +19,8 @@ namespace Smd.Authorization.Roles
         IRoleStore<TRole>,
         IRoleClaimStore<TRole>,
         IRolePermissionStore<TRole>,
-        IQueryableRoleStore<TRole> 
+        IQueryableRoleStore<TRole> ,
+        ITransientDependency
 
         where TRole : SmdRole<TUser>
         where TUser : SmdUser<TUser>

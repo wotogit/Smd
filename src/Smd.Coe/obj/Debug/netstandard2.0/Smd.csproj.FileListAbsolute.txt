@@ -9,3 +9,4 @@ E:\web\Smd\src\Smd.Coe\obj\Debug\netstandard2.0\Smd.pdb
 E:\web\Smd\src\Smd.Coe\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.dll
 E:\web\Smd\src\Smd.Coe\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.xml
 E:\web\Smd\src\Smd.Coe\obj\Debug\netstandard2.0\Smd.csproj.CopyComplete
+E:\web\Smd\src\Smd.Coe\obj\Debug\netstandard2.0\Smd.csprojAssemblyReference.cache

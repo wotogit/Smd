@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "d16e3dc858aef9c986da0e3541974559d53e0536"
+    "signature": "a41b9711b14a83ef49d50ec08885b3bdf2b1eb83"
   },
   "compilationOptions": {},
   "targets": {
@@ -13,6 +13,7 @@
           "NETStandard.Library": "2.0.3",
           "Nito.AsyncEx.Context": "1.1.0",
           "Nito.AsyncEx.Coordination": "1.0.2",
+          "System.Collections.Immutable": "1.5.0",
           "System.ComponentModel.Annotations": "4.2.0.0"
         },
         "runtime": {
@@ -123,6 +124,14 @@
           "lib/netstandard1.3/System.Collections.Concurrent.dll": {
             "assemblyVersion": "4.0.12.0",
             "fileVersion": "1.0.24212.1"
+          }
+        }
+      },
+      "System.Collections.Immutable/1.5.0": {
+        "runtime": {
+          "lib/netstandard2.0/System.Collections.Immutable.dll": {
+            "assemblyVersion": "1.2.3.0",
+            "fileVersion": "4.6.26515.6"
           }
         }
       },
@@ -312,6 +321,13 @@
       "sha512": "sha512-2gBcbb3drMLgxlI0fBfxMA31ec6AEyYCHygGse4vxceJan8mRIWeKJ24BFzN7+bi/NFTgdIgufzb94LWO5EERQ==",
       "path": "system.collections.concurrent/4.0.12",
       "hashPath": "system.collections.concurrent.4.0.12.nupkg.sha512"
+    },
+    "System.Collections.Immutable/1.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EXKiDFsChZW0RjrZ4FYHu9aW6+P4MCgEDCklsVseRfhoO0F+dXeMSsMRAlVXIo06kGJ/zv+2w1a2uc2+kxxSaQ==",
+      "path": "system.collections.immutable/1.5.0",
+      "hashPath": "system.collections.immutable.1.5.0.nupkg.sha512"
     },
     "System.Diagnostics.Debug/4.0.11": {
       "type": "package",

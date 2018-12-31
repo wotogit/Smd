@@ -16,3 +16,5 @@ E:\web\Smd\src\Smd.Zero.Core\bin\Debug\netstandard2.0\Microsoft.Extensions.Ident
 E:\web\Smd\src\Smd.Zero.Core\bin\Debug\netstandard2.0\Smd.Zero.Common.dll
 E:\web\Smd\src\Smd.Zero.Core\bin\Debug\netstandard2.0\Microsoft.Extensions.Identity.Core.xml
 E:\web\Smd\src\Smd.Zero.Core\bin\Debug\netstandard2.0\Smd.Zero.Common.pdb
+E:\web\Smd\src\Smd.Zero.Core\bin\Debug\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll
+E:\web\Smd\src\Smd.Zero.Core\bin\Debug\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.xml

@@ -28,6 +28,8 @@ namespace Wtl.Core.Domain.Authorization.Users
             return Guid.NewGuid().ToString("N").Truncate(16);
         }
 
+       
+
         public override void SetNewPasswordResetCode()
         {
             /* This reset code is intentionally kept short.
