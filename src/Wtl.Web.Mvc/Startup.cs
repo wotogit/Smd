@@ -13,6 +13,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Wtl.EntityFramework;
+using Wtl.Core.Domain.Authorization.Users;
+using Wtl.Core.Domain.Authorization.Roles;
 
 namespace Wtl.Web.Mvc
 {
@@ -39,7 +41,8 @@ namespace Wtl.Web.Mvc
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDefaultIdentity<IdentityUser>()
+            services.AddIdentity<User,Role>()
+               //. AddUserManager
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<WtlDbContext>();
 

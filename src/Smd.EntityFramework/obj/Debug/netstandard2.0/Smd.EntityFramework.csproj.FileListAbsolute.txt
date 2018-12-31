@@ -1,0 +1,12 @@
+E:\web\Smd\src\Smd.EntityFramework\bin\Debug\netstandard2.0\Smd.EntityFramework.deps.json
+E:\web\Smd\src\Smd.EntityFramework\bin\Debug\netstandard2.0\Smd.EntityFramework.dll
+E:\web\Smd\src\Smd.EntityFramework\obj\Debug\netstandard2.0\Smd.EntityFramework.csproj.CoreCompileInputs.cache
+E:\web\Smd\src\Smd.EntityFramework\obj\Debug\netstandard2.0\Smd.EntityFramework.AssemblyInfoInputs.cache
+E:\web\Smd\src\Smd.EntityFramework\obj\Debug\netstandard2.0\Smd.EntityFramework.AssemblyInfo.cs
+E:\web\Smd\src\Smd.EntityFramework\bin\Debug\netstandard2.0\Smd.EntityFramework.pdb
+E:\web\Smd\src\Smd.EntityFramework\bin\Debug\netstandard2.0\Smd.dll
+E:\web\Smd\src\Smd.EntityFramework\bin\Debug\netstandard2.0\Smd.pdb
+E:\web\Smd\src\Smd.EntityFramework\obj\Debug\netstandard2.0\Smd.EntityFramework.csprojAssemblyReference.cache
+E:\web\Smd\src\Smd.EntityFramework\obj\Debug\netstandard2.0\Smd.EntityFramework.csproj.CopyComplete
+E:\web\Smd\src\Smd.EntityFramework\obj\Debug\netstandard2.0\Smd.EntityFramework.dll
+E:\web\Smd\src\Smd.EntityFramework\obj\Debug\netstandard2.0\Smd.EntityFramework.pdb

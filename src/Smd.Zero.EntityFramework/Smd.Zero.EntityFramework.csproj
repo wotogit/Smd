@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Smd.Coe\Smd.csproj" />
+    <ProjectReference Include="..\Smd.EntityFramework\Smd.EntityFramework.csproj" />
+    <ProjectReference Include="..\Smd.Zero.Core\Smd.Zero.Core.csproj" />
+  </ItemGroup>
+
+</Project>

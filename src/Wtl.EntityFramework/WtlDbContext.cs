@@ -1,12 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Smd.Authorization;
+using Smd.Authorization.Roles;
+using Smd.Authorization.Users;
+using Smd.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using Wtl.Core.Domain.Authorization;
 using Wtl.Core.Domain.Authorization.Roles;
 using Wtl.Core.Domain.Authorization.Users;
-using Wtl.Core.Domain.Configuration;
-
+ 
 namespace Wtl.EntityFramework
 {
     public class WtlDbContext : DbContext

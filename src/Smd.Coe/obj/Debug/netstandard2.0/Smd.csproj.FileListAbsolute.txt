@@ -1,7 +1,6 @@
 E:\web\Smd\src\Smd.Coe\bin\Debug\netstandard2.0\Smd.deps.json
 E:\web\Smd\src\Smd.Coe\bin\Debug\netstandard2.0\Smd.dll
 E:\web\Smd\src\Smd.Coe\bin\Debug\netstandard2.0\Smd.pdb
-E:\web\Smd\src\Smd.Coe\obj\Debug\netstandard2.0\Smd.csprojAssemblyReference.cache
 E:\web\Smd\src\Smd.Coe\obj\Debug\netstandard2.0\Smd.csproj.CoreCompileInputs.cache
 E:\web\Smd\src\Smd.Coe\obj\Debug\netstandard2.0\Smd.AssemblyInfoInputs.cache
 E:\web\Smd\src\Smd.Coe\obj\Debug\netstandard2.0\Smd.AssemblyInfo.cs

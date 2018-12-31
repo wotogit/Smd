@@ -1,0 +1,14 @@
+E:\web\Smd\src\Smd.Zero.Common\obj\Debug\netstandard2.0\Smd.Zero.Common.csprojAssemblyReference.cache
+E:\web\Smd\src\Smd.Zero.Common\obj\Debug\netstandard2.0\Smd.Zero.Common.csproj.CoreCompileInputs.cache
+E:\web\Smd\src\Smd.Zero.Common\obj\Debug\netstandard2.0\Smd.Zero.Common.AssemblyInfoInputs.cache
+E:\web\Smd\src\Smd.Zero.Common\obj\Debug\netstandard2.0\Smd.Zero.Common.AssemblyInfo.cs
+E:\web\Smd\src\Smd.Zero.Common\bin\Debug\netstandard2.0\Smd.Zero.Common.deps.json
+E:\web\Smd\src\Smd.Zero.Common\bin\Debug\netstandard2.0\Smd.Zero.Common.dll
+E:\web\Smd\src\Smd.Zero.Common\bin\Debug\netstandard2.0\Smd.Zero.Common.pdb
+E:\web\Smd\src\Smd.Zero.Common\bin\Debug\netstandard2.0\Smd.dll
+E:\web\Smd\src\Smd.Zero.Common\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.dll
+E:\web\Smd\src\Smd.Zero.Common\bin\Debug\netstandard2.0\Smd.pdb
+E:\web\Smd\src\Smd.Zero.Common\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.xml
+E:\web\Smd\src\Smd.Zero.Common\obj\Debug\netstandard2.0\Smd.Zero.Common.csproj.CopyComplete
+E:\web\Smd\src\Smd.Zero.Common\obj\Debug\netstandard2.0\Smd.Zero.Common.dll
+E:\web\Smd\src\Smd.Zero.Common\obj\Debug\netstandard2.0\Smd.Zero.Common.pdb

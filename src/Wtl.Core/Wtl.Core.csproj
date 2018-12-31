@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Smd.Coe\Smd.csproj" />
+    <ProjectReference Include="..\Smd.Zero.Core\Smd.Zero.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
