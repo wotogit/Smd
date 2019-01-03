@@ -10,3 +10,5 @@ E:\web\Smd\src\Smd.EntityFramework\obj\Debug\netstandard2.0\Smd.EntityFramework.
 E:\web\Smd\src\Smd.EntityFramework\obj\Debug\netstandard2.0\Smd.EntityFramework.csproj.CopyComplete
 E:\web\Smd\src\Smd.EntityFramework\obj\Debug\netstandard2.0\Smd.EntityFramework.dll
 E:\web\Smd\src\Smd.EntityFramework\obj\Debug\netstandard2.0\Smd.EntityFramework.pdb
+E:\web\Smd\src\Smd.EntityFramework\bin\Debug\netstandard2.0\Microsoft.AspNetCore.Hosting.Abstractions.dll
+E:\web\Smd\src\Smd.EntityFramework\bin\Debug\netstandard2.0\Microsoft.AspNetCore.Hosting.Abstractions.xml

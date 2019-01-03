@@ -18,3 +18,5 @@ E:\web\Smd\src\Smd.Zero.EntityFramework\bin\Debug\netstandard2.0\Smd.Zero.Common
 E:\web\Smd\src\Smd.Zero.EntityFramework\bin\Debug\netstandard2.0\Microsoft.Extensions.Identity.Core.dll
 E:\web\Smd\src\Smd.Zero.EntityFramework\bin\Debug\netstandard2.0\Smd.Zero.Common.pdb
 E:\web\Smd\src\Smd.Zero.EntityFramework\bin\Debug\netstandard2.0\Microsoft.Extensions.Identity.Core.xml
+E:\web\Smd\src\Smd.Zero.EntityFramework\bin\Debug\netstandard2.0\Microsoft.AspNetCore.Hosting.Abstractions.dll
+E:\web\Smd\src\Smd.Zero.EntityFramework\bin\Debug\netstandard2.0\Microsoft.AspNetCore.Hosting.Abstractions.xml

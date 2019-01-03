@@ -5,10 +5,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Smd.Coe\Smd.csproj" />
     <ProjectReference Include="..\Wtl.Application\Wtl.Application.csproj" />
     <ProjectReference Include="..\Wtl.Core\Wtl.Core.csproj" />
     <ProjectReference Include="..\Wtl.EntityFramework\Wtl.EntityFramework.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNetCore.Http">
+      <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.http\2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

@@ -19,7 +19,7 @@ using System.Threading.Tasks;
 
 namespace Smd.Authorization.Users
 {
-    public class SmdUserStoree<TRole, TUser> :
+    public class SmdUserStore<TRole, TUser> :
         IUserLoginStore<TUser>,
         IUserRoleStore<TUser>,
         IUserClaimStore<TUser>,
@@ -68,7 +68,7 @@ namespace Smd.Authorization.Users
 
       //  private readonly IUnitOfWorkManager _unitOfWorkManager;
 
-        public SmdUserStoree(
+        public SmdUserStore(
            // IUnitOfWorkManager unitOfWorkManager,
             IRepository<TUser, long> userRepository,
             IRepository<TRole,long> roleRepository,

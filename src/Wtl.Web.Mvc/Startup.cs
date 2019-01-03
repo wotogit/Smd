@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Wtl.EntityFramework;
 using Wtl.Core.Domain.Authorization.Users;
 using Wtl.Core.Domain.Authorization.Roles;
+using Wtl.Web.Core.Infrastructure.Extensions;
 
 namespace Wtl.Web.Mvc
 {
@@ -36,6 +37,8 @@ namespace Wtl.Web.Mvc
                 options.CheckConsentNeeded = context => false;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+
+            services.ConfigureApplicationServices(Configuration);
 
             services.AddDbContext<WtlDbContext>(options =>
                 options.UseSqlServer(
@@ -67,6 +70,8 @@ namespace Wtl.Web.Mvc
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            app.ConfigureRequestPipeline(); 
 
             app.UseAuthentication();
 
