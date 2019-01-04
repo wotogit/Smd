@@ -202,7 +202,7 @@ namespace Smd.Infrastructure
                 RunStartupTasks(typeFinder);
 
             //resolve assemblies here. otherwise, plugins can throw an exception when rendering views
-            AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
+           // AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
 
             return _serviceProvider;
         }

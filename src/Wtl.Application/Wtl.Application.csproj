@@ -10,4 +10,8 @@
     <ProjectReference Include="..\Wtl.EntityFramework\Wtl.EntityFramework.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Authorization\Users\" />
+  </ItemGroup>
+
 </Project>

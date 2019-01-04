@@ -13,7 +13,7 @@ namespace Smd.Authorization
     /// <summary>
     /// Permission manager.
     /// </summary>
-    internal class PermissionManager : PermissionDefinitionContextBase, IPermissionManager, ISingletonDependency
+   public   class PermissionManager : PermissionDefinitionContextBase, IPermissionManager, ISingletonDependency
     {
         public ISmdSession SmdSession { get; set; }
 

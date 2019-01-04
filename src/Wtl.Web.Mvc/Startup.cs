@@ -45,10 +45,10 @@ namespace Wtl.Web.Mvc
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddIdentity<User,Role>()
-               //. AddUserManager
-                .AddDefaultUI(UIFramework.Bootstrap4)
-                .AddEntityFrameworkStores<WtlDbContext>();
+            //services.AddIdentity<User,Role>()
+            //   //. AddUserManager
+            //    .AddDefaultUI(UIFramework.Bootstrap4)
+            //    .AddEntityFrameworkStores<WtlDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
@@ -74,7 +74,7 @@ namespace Wtl.Web.Mvc
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
-            app.ConfigureRequestPipeline(); 
+           app.ConfigureRequestPipeline(); 
 
             app.UseAuthentication();
 

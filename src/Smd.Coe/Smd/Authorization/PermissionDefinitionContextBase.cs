@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Smd.Authorization
 {
-    internal abstract class PermissionDefinitionContextBase : IPermissionDefinitionContext
+    public abstract class PermissionDefinitionContextBase : IPermissionDefinitionContext
     {
         protected readonly PermissionDictionary Permissions;
 

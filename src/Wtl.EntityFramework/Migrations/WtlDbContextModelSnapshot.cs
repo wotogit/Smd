@@ -397,6 +397,27 @@ namespace Wtl.EntityFramework.Migrations
                     b.ToTable("SmdUsers");
                 });
 
+            modelBuilder.Entity("Wtl.Orders.SaleOrder", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreationTime");
+
+                    b.Property<long?>("CreatorUserId");
+
+                    b.Property<DateTime?>("LastModificationTime");
+
+                    b.Property<long?>("LastModifierUserId");
+
+                    b.Property<string>("OrderNum");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SaleOrders");
+                });
+
             modelBuilder.Entity("Smd.Authorization.Roles.RolePermission", b =>
                 {
                     b.HasBaseType("Smd.Authorization.PermissionSetting");

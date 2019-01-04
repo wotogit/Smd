@@ -8,7 +8,7 @@ namespace Smd.Authorization
     /// <summary>
     /// Used to store and manipulate dictionary of permissions.
     /// </summary>
-    internal class PermissionDictionary : Dictionary<string, Permission>
+    public class PermissionDictionary : Dictionary<string, Permission>
     {
         /// <summary>
         /// Adds all child permissions of current permissions recursively.

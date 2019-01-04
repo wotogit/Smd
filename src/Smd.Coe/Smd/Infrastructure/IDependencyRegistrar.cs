@@ -20,7 +20,7 @@ namespace Smd.Infrastructure
         void Register(ContainerBuilder builder, ITypeFinder typeFinder, SmdConfig config);
 
         /// <summary>
-        /// Gets order of this dependency registrar implementation
+        /// Gets order of this dependency registrar implementation,越小越先注册
         /// </summary>
         int Order { get; }
     }

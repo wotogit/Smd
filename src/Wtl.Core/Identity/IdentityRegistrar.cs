@@ -15,7 +15,7 @@ namespace Wtl.Identity
     {
         public static IdentityBuilder Register(IServiceCollection services)
         {
-            services.AddLogging();
+          services.AddLogging();
 
             return services.AddSmdIdentity<User, Role>(options =>
             {

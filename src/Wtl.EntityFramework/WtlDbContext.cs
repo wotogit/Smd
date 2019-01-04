@@ -10,11 +10,15 @@ using System.Text;
 using Wtl.Authorization;
 using Wtl.Authorization.Roles;
 using Wtl.Authorization.Users;
- 
+using Wtl.Orders;
+
 namespace Wtl.EntityFramework
 {
     public class WtlDbContext : SmdZeroDbContext< Role, User, WtlDbContext>
-    { 
+    {
+        public virtual DbSet<SaleOrder> SaleOrders { get; set; }
+
+
         /// <summary>
         /// 在Startup.cs配置WtlDbContext的情况下，在定义一个构造函数,参数为DbContextOptions<WtlDbContext>
         /// </summary>
