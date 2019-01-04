@@ -19,7 +19,7 @@ using System.Threading.Tasks;
 
 namespace Smd.Authorization.Users
 {
-    public class SmdUserStore<TRole, TUser> :
+    public abstract class SmdUserStore<TRole, TUser> :
         IUserLoginStore<TUser>,
         IUserRoleStore<TUser>,
         IUserClaimStore<TUser>,

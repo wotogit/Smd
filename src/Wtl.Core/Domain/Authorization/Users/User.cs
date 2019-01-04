@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text; 
 
-namespace Wtl.Core.Domain.Authorization.Users
+namespace Wtl.Authorization.Users
 {
     /// <summary>
     /// 用户

@@ -278,16 +278,11 @@ namespace Smd.Authorization.Users
             return SmdStore.FindAllAsync(login);
         }
 
-        public virtual Task<TUser> FindAsync(int? tenantId, UserLoginInfo login)
+        public virtual Task<TUser> FindAsync( UserLoginInfo login)
         {
-            return SmdStore.FindAsync(tenantId, login);
+            return SmdStore.FindAsync( login);
         }
-
-        public virtual Task<TUser> FindByNameOrEmailAsync(int? tenantId, string userNameOrEmailAddress)
-        {
-            return SmdStore.FindByNameOrEmailAsync(tenantId, userNameOrEmailAddress);
-        }
-
+ 
         /// <summary>
         /// Gets a user by given id.
         /// Throws exception if no user found with given id.

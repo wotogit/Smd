@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Smd.Authorization.Roles
 {
-    public abstract class SmdRole<TUser>:SmdRoleBase,IAudited<TUser> where TUser:SmdUserBase
+    public abstract class SmdRole<TUser>:SmdRoleBase,IAudited<TUser> where TUser : SmdUser<TUser>
     {
         /// <summary>
         /// 随机值

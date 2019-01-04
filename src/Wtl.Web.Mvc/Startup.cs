@@ -13,9 +13,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Wtl.EntityFramework;
-using Wtl.Core.Domain.Authorization.Users;
-using Wtl.Core.Domain.Authorization.Roles;
+using Wtl.Authorization.Users;
+using Wtl.Authorization.Roles;
 using Wtl.Web.Core.Infrastructure.Extensions;
+using Wtl.Identity;
 
 namespace Wtl.Web.Mvc
 {
@@ -50,6 +51,8 @@ namespace Wtl.Web.Mvc
                 .AddEntityFrameworkStores<WtlDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            var identityBuilder = IdentityRegistrar.Register(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -4,10 +4,70 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Wtl.EntityFramework.Migrations
 {
-    public partial class authorization : Migration
+    public partial class dev01 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "SmdSettings",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    CreationTime = table.Column<DateTime>(nullable: false),
+                    CreatorUserId = table.Column<long>(nullable: true),
+                    LastModificationTime = table.Column<DateTime>(nullable: true),
+                    LastModifierUserId = table.Column<long>(nullable: true),
+                    UserId = table.Column<long>(nullable: true),
+                    Name = table.Column<string>(maxLength: 256, nullable: false),
+                    Value = table.Column<string>(maxLength: 2000, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SmdSettings", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SmdUserAccounts",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    CreationTime = table.Column<DateTime>(nullable: false),
+                    CreatorUserId = table.Column<long>(nullable: true),
+                    LastModificationTime = table.Column<DateTime>(nullable: true),
+                    LastModifierUserId = table.Column<long>(nullable: true),
+                    UserId = table.Column<long>(nullable: false),
+                    UserLinkId = table.Column<long>(nullable: true),
+                    UserName = table.Column<string>(maxLength: 256, nullable: true),
+                    EmailAddress = table.Column<string>(maxLength: 256, nullable: true),
+                    LastLoginTime = table.Column<DateTime>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SmdUserAccounts", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SmdUserLoginAttempts",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    CreationTime = table.Column<DateTime>(nullable: false),
+                    CreatorUserId = table.Column<long>(nullable: true),
+                    UserId = table.Column<long>(nullable: true),
+                    UserNameOrEmailAddress = table.Column<string>(maxLength: 255, nullable: true),
+                    ClientIpAddress = table.Column<string>(maxLength: 64, nullable: true),
+                    ClientName = table.Column<string>(maxLength: 128, nullable: true),
+                    BrowserInfo = table.Column<string>(maxLength: 512, nullable: true),
+                    Result = table.Column<byte>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SmdUserLoginAttempts", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "SmdUsers",
                 columns: table => new
@@ -33,7 +93,11 @@ namespace Wtl.EntityFramework.Migrations
                     IsEmailConfirmed = table.Column<bool>(nullable: false),
                     IsActive = table.Column<bool>(nullable: false),
                     LastLoginTime = table.Column<DateTime>(nullable: true),
-                    ConcurrencyStamp = table.Column<string>(maxLength: 128, nullable: true)
+                    AccessFailedCount = table.Column<int>(nullable: false),
+                    IsTwoFactorEnabled = table.Column<bool>(nullable: false),
+                    ConcurrencyStamp = table.Column<string>(maxLength: 128, nullable: true),
+                    SignInTokenExpireTimeUtc = table.Column<DateTime>(nullable: true),
+                    SignInToken = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -50,26 +114,6 @@ namespace Wtl.EntityFramework.Migrations
                         principalTable: "SmdUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "UserLoginAttempts",
-                columns: table => new
-                {
-                    Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CreationTime = table.Column<DateTime>(nullable: false),
-                    CreatorUserId = table.Column<long>(nullable: true),
-                    UserId = table.Column<long>(nullable: true),
-                    UserNameOrEmailAddress = table.Column<string>(maxLength: 255, nullable: true),
-                    ClientIpAddress = table.Column<string>(maxLength: 64, nullable: true),
-                    ClientName = table.Column<string>(maxLength: 128, nullable: true),
-                    BrowserInfo = table.Column<string>(maxLength: 512, nullable: true),
-                    Result = table.Column<byte>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserLoginAttempts", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -106,31 +150,6 @@ namespace Wtl.EntityFramework.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "SmdSettings",
-                columns: table => new
-                {
-                    Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CreationTime = table.Column<DateTime>(nullable: false),
-                    CreatorUserId = table.Column<long>(nullable: true),
-                    LastModificationTime = table.Column<DateTime>(nullable: true),
-                    LastModifierUserId = table.Column<long>(nullable: true),
-                    UserId = table.Column<long>(nullable: true),
-                    Name = table.Column<string>(maxLength: 256, nullable: false),
-                    Value = table.Column<string>(maxLength: 2000, nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_SmdSettings", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_SmdSettings_SmdUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "SmdUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "SmdUserClaims",
                 columns: table => new
                 {
@@ -161,7 +180,8 @@ namespace Wtl.EntityFramework.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     UserId = table.Column<long>(nullable: false),
                     LoginProvider = table.Column<string>(maxLength: 128, nullable: false),
-                    ProviderKey = table.Column<string>(maxLength: 256, nullable: false)
+                    ProviderKey = table.Column<string>(maxLength: 256, nullable: false),
+                    CreationTime = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -175,7 +195,7 @@ namespace Wtl.EntityFramework.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "SmdUserRole",
+                name: "SmdUserRoles",
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
@@ -183,13 +203,13 @@ namespace Wtl.EntityFramework.Migrations
                     CreationTime = table.Column<DateTime>(nullable: false),
                     CreatorUserId = table.Column<long>(nullable: true),
                     UserId = table.Column<long>(nullable: false),
-                    RoleId = table.Column<int>(nullable: false)
+                    RoleId = table.Column<long>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SmdUserRole", x => x.Id);
+                    table.PrimaryKey("PK_SmdUserRoles", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_SmdUserRole_SmdUsers_UserId",
+                        name: "FK_SmdUserRoles_SmdUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "SmdUsers",
                         principalColumn: "Id",
@@ -318,9 +338,19 @@ namespace Wtl.EntityFramework.Migrations
                 column: "Name");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SmdSettings_UserId",
-                table: "SmdSettings",
+                name: "IX_SmdUserAccounts_EmailAddress",
+                table: "SmdUserAccounts",
+                column: "EmailAddress");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SmdUserAccounts_UserId",
+                table: "SmdUserAccounts",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SmdUserAccounts_UserName",
+                table: "SmdUserAccounts",
+                column: "UserName");
 
             migrationBuilder.CreateIndex(
                 name: "IX_SmdUserClaims_ClaimType",
@@ -333,6 +363,16 @@ namespace Wtl.EntityFramework.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_SmdUserLoginAttempts_UserId",
+                table: "SmdUserLoginAttempts",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SmdUserLoginAttempts_UserNameOrEmailAddress_Result",
+                table: "SmdUserLoginAttempts",
+                columns: new[] { "UserNameOrEmailAddress", "Result" });
+
+            migrationBuilder.CreateIndex(
                 name: "IX_SmdUserLogins_UserId",
                 table: "SmdUserLogins",
                 column: "UserId");
@@ -343,13 +383,13 @@ namespace Wtl.EntityFramework.Migrations
                 columns: new[] { "LoginProvider", "ProviderKey" });
 
             migrationBuilder.CreateIndex(
-                name: "IX_SmdUserRole_RoleId",
-                table: "SmdUserRole",
+                name: "IX_SmdUserRoles_RoleId",
+                table: "SmdUserRoles",
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SmdUserRole_UserId",
-                table: "SmdUserRole",
+                name: "IX_SmdUserRoles_UserId",
+                table: "SmdUserRoles",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
@@ -376,16 +416,6 @@ namespace Wtl.EntityFramework.Migrations
                 name: "IX_SmdUserTokens_UserId",
                 table: "SmdUserTokens",
                 column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_UserLoginAttempts_UserId",
-                table: "UserLoginAttempts",
-                column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_UserLoginAttempts_UserNameOrEmailAddress_Result",
-                table: "UserLoginAttempts",
-                columns: new[] { "UserNameOrEmailAddress", "Result" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -400,19 +430,22 @@ namespace Wtl.EntityFramework.Migrations
                 name: "SmdSettings");
 
             migrationBuilder.DropTable(
+                name: "SmdUserAccounts");
+
+            migrationBuilder.DropTable(
                 name: "SmdUserClaims");
+
+            migrationBuilder.DropTable(
+                name: "SmdUserLoginAttempts");
 
             migrationBuilder.DropTable(
                 name: "SmdUserLogins");
 
             migrationBuilder.DropTable(
-                name: "SmdUserRole");
+                name: "SmdUserRoles");
 
             migrationBuilder.DropTable(
                 name: "SmdUserTokens");
-
-            migrationBuilder.DropTable(
-                name: "UserLoginAttempts");
 
             migrationBuilder.DropTable(
                 name: "SmdRoles");

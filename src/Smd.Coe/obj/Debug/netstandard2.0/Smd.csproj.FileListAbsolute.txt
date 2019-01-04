@@ -9,3 +9,4 @@ E:\web\Smd\src\Smd.Coe\obj\Debug\netstandard2.0\Smd.pdb
 E:\web\Smd\src\Smd.Coe\bin\Debug\netstandard2.0\Microsoft.AspNetCore.Hosting.Abstractions.dll
 E:\web\Smd\src\Smd.Coe\bin\Debug\netstandard2.0\Microsoft.AspNetCore.Hosting.Abstractions.xml
 E:\web\Smd\src\Smd.Coe\obj\Debug\netstandard2.0\Smd.csproj.CopyComplete
+E:\web\Smd\src\Smd.Coe\obj\Debug\netstandard2.0\Smd.csprojAssemblyReference.cache

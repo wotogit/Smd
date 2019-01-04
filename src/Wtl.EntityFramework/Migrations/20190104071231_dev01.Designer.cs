@@ -10,8 +10,8 @@ using Wtl.EntityFramework;
 namespace Wtl.EntityFramework.Migrations
 {
     [DbContext(typeof(WtlDbContext))]
-    [Migration("20181229084653_UserRoles")]
-    partial class UserRoles
+    [Migration("20190104071231_dev01")]
+    partial class dev01
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,7 @@ namespace Wtl.EntityFramework.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Wtl.Core.Domain.Authorization.Permission", b =>
+            modelBuilder.Entity("Smd.Authorization.PermissionSetting", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -42,10 +42,242 @@ namespace Wtl.EntityFramework.Migrations
 
                     b.ToTable("SmdPermissions");
 
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Permission");
+                    b.HasDiscriminator<string>("Discriminator").HasValue("PermissionSetting");
                 });
 
-            modelBuilder.Entity("Wtl.Core.Domain.Authorization.Roles.Role", b =>
+            modelBuilder.Entity("Smd.Authorization.Roles.RoleClaim", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClaimType")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("ClaimValue");
+
+                    b.Property<DateTime>("CreationTime");
+
+                    b.Property<long?>("CreatorUserId");
+
+                    b.Property<DateTime?>("LastModificationTime");
+
+                    b.Property<long?>("LastModifierUserId");
+
+                    b.Property<long>("RoleId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClaimType");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("SmdRoleClaims");
+                });
+
+            modelBuilder.Entity("Smd.Authorization.Users.UserAccount", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreationTime");
+
+                    b.Property<long?>("CreatorUserId");
+
+                    b.Property<string>("EmailAddress")
+                        .HasMaxLength(256);
+
+                    b.Property<DateTime?>("LastLoginTime");
+
+                    b.Property<DateTime?>("LastModificationTime");
+
+                    b.Property<long?>("LastModifierUserId");
+
+                    b.Property<long>("UserId");
+
+                    b.Property<long?>("UserLinkId");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmailAddress");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("UserName");
+
+                    b.ToTable("SmdUserAccounts");
+                });
+
+            modelBuilder.Entity("Smd.Authorization.Users.UserClaim", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClaimType")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("ClaimValue");
+
+                    b.Property<DateTime>("CreationTime");
+
+                    b.Property<long?>("CreatorUserId");
+
+                    b.Property<long>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClaimType");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("SmdUserClaims");
+                });
+
+            modelBuilder.Entity("Smd.Authorization.Users.UserLogin", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreationTime");
+
+                    b.Property<string>("LoginProvider")
+                        .IsRequired()
+                        .HasMaxLength(128);
+
+                    b.Property<string>("ProviderKey")
+                        .IsRequired()
+                        .HasMaxLength(256);
+
+                    b.Property<long>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("LoginProvider", "ProviderKey");
+
+                    b.ToTable("SmdUserLogins");
+                });
+
+            modelBuilder.Entity("Smd.Authorization.Users.UserLoginAttempt", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("BrowserInfo")
+                        .HasMaxLength(512);
+
+                    b.Property<string>("ClientIpAddress")
+                        .HasMaxLength(64);
+
+                    b.Property<string>("ClientName")
+                        .HasMaxLength(128);
+
+                    b.Property<DateTime>("CreationTime");
+
+                    b.Property<long?>("CreatorUserId");
+
+                    b.Property<byte>("Result");
+
+                    b.Property<long?>("UserId");
+
+                    b.Property<string>("UserNameOrEmailAddress")
+                        .HasMaxLength(255);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("UserNameOrEmailAddress", "Result");
+
+                    b.ToTable("SmdUserLoginAttempts");
+                });
+
+            modelBuilder.Entity("Smd.Authorization.Users.UserRole", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreationTime");
+
+                    b.Property<long?>("CreatorUserId");
+
+                    b.Property<long>("RoleId");
+
+                    b.Property<long>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("SmdUserRoles");
+                });
+
+            modelBuilder.Entity("Smd.Authorization.Users.UserToken", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("LoginProvider")
+                        .HasMaxLength(64);
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(128);
+
+                    b.Property<long>("UserId");
+
+                    b.Property<string>("Value")
+                        .HasMaxLength(512);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("SmdUserTokens");
+                });
+
+            modelBuilder.Entity("Smd.Configuration.Setting", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreationTime");
+
+                    b.Property<long?>("CreatorUserId");
+
+                    b.Property<DateTime?>("LastModificationTime");
+
+                    b.Property<long?>("LastModifierUserId");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(256);
+
+                    b.Property<long?>("UserId");
+
+                    b.Property<string>("Value")
+                        .HasMaxLength(2000);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name");
+
+                    b.ToTable("SmdSettings");
+                });
+
+            modelBuilder.Entity("Wtl.Authorization.Roles.Role", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -86,41 +318,13 @@ namespace Wtl.EntityFramework.Migrations
                     b.ToTable("SmdRoles");
                 });
 
-            modelBuilder.Entity("Wtl.Core.Domain.Authorization.Roles.RoleClaim", b =>
+            modelBuilder.Entity("Wtl.Authorization.Users.User", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ClaimType")
-                        .HasMaxLength(256);
-
-                    b.Property<string>("ClaimValue");
-
-                    b.Property<DateTime>("CreationTime");
-
-                    b.Property<long?>("CreatorUserId");
-
-                    b.Property<DateTime?>("LastModificationTime");
-
-                    b.Property<long?>("LastModifierUserId");
-
-                    b.Property<long>("RoleId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ClaimType");
-
-                    b.HasIndex("RoleId");
-
-                    b.ToTable("SmdRoleClaims");
-                });
-
-            modelBuilder.Entity("Wtl.Core.Domain.Authorization.Users.User", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<int>("AccessFailedCount");
 
                     b.Property<string>("AuthenticationSource")
                         .HasMaxLength(64);
@@ -144,6 +348,8 @@ namespace Wtl.EntityFramework.Migrations
                     b.Property<bool>("IsEmailConfirmed");
 
                     b.Property<bool>("IsPhoneNumberConfirmed");
+
+                    b.Property<bool>("IsTwoFactorEnabled");
 
                     b.Property<DateTime?>("LastLoginTime");
 
@@ -172,6 +378,10 @@ namespace Wtl.EntityFramework.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasMaxLength(128);
 
+                    b.Property<string>("SignInToken");
+
+                    b.Property<DateTime?>("SignInTokenExpireTimeUtc");
+
                     b.Property<string>("UserName")
                         .IsRequired()
                         .HasMaxLength(256);
@@ -189,174 +399,9 @@ namespace Wtl.EntityFramework.Migrations
                     b.ToTable("SmdUsers");
                 });
 
-            modelBuilder.Entity("Wtl.Core.Domain.Authorization.Users.UserClaim", b =>
+            modelBuilder.Entity("Smd.Authorization.Roles.RolePermission", b =>
                 {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ClaimType")
-                        .HasMaxLength(256);
-
-                    b.Property<string>("ClaimValue");
-
-                    b.Property<DateTime>("CreationTime");
-
-                    b.Property<long?>("CreatorUserId");
-
-                    b.Property<long>("UserId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ClaimType");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("SmdUserClaims");
-                });
-
-            modelBuilder.Entity("Wtl.Core.Domain.Authorization.Users.UserLogin", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("LoginProvider")
-                        .IsRequired()
-                        .HasMaxLength(128);
-
-                    b.Property<string>("ProviderKey")
-                        .IsRequired()
-                        .HasMaxLength(256);
-
-                    b.Property<long>("UserId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.HasIndex("LoginProvider", "ProviderKey");
-
-                    b.ToTable("SmdUserLogins");
-                });
-
-            modelBuilder.Entity("Wtl.Core.Domain.Authorization.Users.UserLoginAttempt", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("BrowserInfo")
-                        .HasMaxLength(512);
-
-                    b.Property<string>("ClientIpAddress")
-                        .HasMaxLength(64);
-
-                    b.Property<string>("ClientName")
-                        .HasMaxLength(128);
-
-                    b.Property<DateTime>("CreationTime");
-
-                    b.Property<long?>("CreatorUserId");
-
-                    b.Property<byte>("Result");
-
-                    b.Property<long?>("UserId");
-
-                    b.Property<string>("UserNameOrEmailAddress")
-                        .HasMaxLength(255);
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.HasIndex("UserNameOrEmailAddress", "Result");
-
-                    b.ToTable("UserLoginAttempts");
-                });
-
-            modelBuilder.Entity("Wtl.Core.Domain.Authorization.Users.UserRole", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreationTime");
-
-                    b.Property<long?>("CreatorUserId");
-
-                    b.Property<int>("RoleId");
-
-                    b.Property<long>("UserId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RoleId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("SmdUserRoles");
-                });
-
-            modelBuilder.Entity("Wtl.Core.Domain.Authorization.Users.UserToken", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("LoginProvider")
-                        .HasMaxLength(64);
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(128);
-
-                    b.Property<long>("UserId");
-
-                    b.Property<string>("Value")
-                        .HasMaxLength(512);
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("SmdUserTokens");
-                });
-
-            modelBuilder.Entity("Wtl.Core.Domain.Configuration.Setting", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreationTime");
-
-                    b.Property<long?>("CreatorUserId");
-
-                    b.Property<DateTime?>("LastModificationTime");
-
-                    b.Property<long?>("LastModifierUserId");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(256);
-
-                    b.Property<long?>("UserId");
-
-                    b.Property<string>("Value")
-                        .HasMaxLength(2000);
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Name");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("SmdSettings");
-                });
-
-            modelBuilder.Entity("Wtl.Core.Domain.Authorization.Roles.RolePermission", b =>
-                {
-                    b.HasBaseType("Wtl.Core.Domain.Authorization.Permission");
+                    b.HasBaseType("Smd.Authorization.PermissionSetting");
 
                     b.Property<long>("RoleId");
 
@@ -367,9 +412,9 @@ namespace Wtl.EntityFramework.Migrations
                     b.HasDiscriminator().HasValue("RolePermission");
                 });
 
-            modelBuilder.Entity("Wtl.Core.Domain.Authorization.Users.UserPermission", b =>
+            modelBuilder.Entity("Smd.Authorization.Users.UserPermission", b =>
                 {
-                    b.HasBaseType("Wtl.Core.Domain.Authorization.Permission");
+                    b.HasBaseType("Smd.Authorization.PermissionSetting");
 
                     b.Property<long>("UserId");
 
@@ -380,86 +425,79 @@ namespace Wtl.EntityFramework.Migrations
                     b.HasDiscriminator().HasValue("UserPermission");
                 });
 
-            modelBuilder.Entity("Wtl.Core.Domain.Authorization.Roles.Role", b =>
+            modelBuilder.Entity("Smd.Authorization.Roles.RoleClaim", b =>
                 {
-                    b.HasOne("Wtl.Core.Domain.Authorization.Users.User", "CreatorUser")
-                        .WithMany()
-                        .HasForeignKey("CreatorUserId");
-
-                    b.HasOne("Wtl.Core.Domain.Authorization.Users.User", "LastModifierUser")
-                        .WithMany()
-                        .HasForeignKey("LastModifierUserId");
-                });
-
-            modelBuilder.Entity("Wtl.Core.Domain.Authorization.Roles.RoleClaim", b =>
-                {
-                    b.HasOne("Wtl.Core.Domain.Authorization.Roles.Role")
+                    b.HasOne("Wtl.Authorization.Roles.Role")
                         .WithMany("Claims")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Wtl.Core.Domain.Authorization.Users.User", b =>
+            modelBuilder.Entity("Smd.Authorization.Users.UserClaim", b =>
                 {
-                    b.HasOne("Wtl.Core.Domain.Authorization.Users.User", "CreatorUser")
-                        .WithMany()
-                        .HasForeignKey("CreatorUserId");
-
-                    b.HasOne("Wtl.Core.Domain.Authorization.Users.User", "LastModifierUser")
-                        .WithMany()
-                        .HasForeignKey("LastModifierUserId");
-                });
-
-            modelBuilder.Entity("Wtl.Core.Domain.Authorization.Users.UserClaim", b =>
-                {
-                    b.HasOne("Wtl.Core.Domain.Authorization.Users.User")
+                    b.HasOne("Wtl.Authorization.Users.User")
                         .WithMany("Claims")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Wtl.Core.Domain.Authorization.Users.UserLogin", b =>
+            modelBuilder.Entity("Smd.Authorization.Users.UserLogin", b =>
                 {
-                    b.HasOne("Wtl.Core.Domain.Authorization.Users.User")
+                    b.HasOne("Wtl.Authorization.Users.User")
                         .WithMany("Logins")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Wtl.Core.Domain.Authorization.Users.UserRole", b =>
+            modelBuilder.Entity("Smd.Authorization.Users.UserRole", b =>
                 {
-                    b.HasOne("Wtl.Core.Domain.Authorization.Users.User")
+                    b.HasOne("Wtl.Authorization.Users.User")
                         .WithMany("Roles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Wtl.Core.Domain.Authorization.Users.UserToken", b =>
+            modelBuilder.Entity("Smd.Authorization.Users.UserToken", b =>
                 {
-                    b.HasOne("Wtl.Core.Domain.Authorization.Users.User")
+                    b.HasOne("Wtl.Authorization.Users.User")
                         .WithMany("Tokens")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Wtl.Core.Domain.Configuration.Setting", b =>
+            modelBuilder.Entity("Wtl.Authorization.Roles.Role", b =>
                 {
-                    b.HasOne("Wtl.Core.Domain.Authorization.Users.User")
-                        .WithMany("Settings")
-                        .HasForeignKey("UserId");
+                    b.HasOne("Wtl.Authorization.Users.User", "CreatorUser")
+                        .WithMany()
+                        .HasForeignKey("CreatorUserId");
+
+                    b.HasOne("Wtl.Authorization.Users.User", "LastModifierUser")
+                        .WithMany()
+                        .HasForeignKey("LastModifierUserId");
                 });
 
-            modelBuilder.Entity("Wtl.Core.Domain.Authorization.Roles.RolePermission", b =>
+            modelBuilder.Entity("Wtl.Authorization.Users.User", b =>
                 {
-                    b.HasOne("Wtl.Core.Domain.Authorization.Roles.Role")
+                    b.HasOne("Wtl.Authorization.Users.User", "CreatorUser")
+                        .WithMany()
+                        .HasForeignKey("CreatorUserId");
+
+                    b.HasOne("Wtl.Authorization.Users.User", "LastModifierUser")
+                        .WithMany()
+                        .HasForeignKey("LastModifierUserId");
+                });
+
+            modelBuilder.Entity("Smd.Authorization.Roles.RolePermission", b =>
+                {
+                    b.HasOne("Wtl.Authorization.Roles.Role")
                         .WithMany("Permissions")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Wtl.Core.Domain.Authorization.Users.UserPermission", b =>
+            modelBuilder.Entity("Smd.Authorization.Users.UserPermission", b =>
                 {
-                    b.HasOne("Wtl.Core.Domain.Authorization.Users.User")
+                    b.HasOne("Wtl.Authorization.Users.User")
                         .WithMany("Permissions")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);

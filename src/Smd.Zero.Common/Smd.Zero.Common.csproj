@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Authorization\Users\UserAccountSynchronizer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Smd.Coe\Smd.csproj" />
   </ItemGroup>
 

@@ -9,7 +9,7 @@ namespace Smd.Reflection
     /// <summary>
     /// Defines helper methods for reflection.
     /// </summary>
-    internal static class ReflectionHelper
+  public    static class ReflectionHelper
     {
         /// <summary>
         /// Checks whether <paramref name="givenType"/> implements/inherits <paramref name="genericType"/>.

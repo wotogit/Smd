@@ -7,9 +7,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
-using Wtl.Core.Domain.Authorization.Users;
+using Wtl.Authorization.Users;  
 
-namespace Wtl.Core.Domain.Authorization.Roles
+namespace Wtl.Authorization.Roles
 {
     /// <summary>
     /// 角色
